@@ -1,68 +1,153 @@
-<section id="shirts" class="section">
-  <h2>Custom Shirts</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Shirts Store</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+
+    .price {
+      font-size: 20px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Custom Shirts</h1>
+  <p>Edit prices anytime</p>
+</header>
+
+<section class="section">
   <div class="products">
 
+    <!-- Graphic Tees -->
     <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Custom Graphic Tee">
+      <img src="https://via.placeholder.com/300x200">
       <h3>Graphic Tees</h3>
       <p>Custom artwork or logos.</p>
-      <p><strong>$25</strong></p>
-      
-      <!-- Shirt Size Selector -->
-      <label for="shirt-size-1">Size:</label>
-      <select id="shirt-size-1" name="shirt-size-1">
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-        <option value="xl">XL</option>
-        <option value="2xl">2XL</option>
-        <option value="3xl">3XL</option>
-        <option value="4xl">4XL</option>
-        <option value="5xl">5XL</option>
+
+      <div class="price">$<span id="price1">25</span></div>
+
+      <label>Change Price ($)</label>
+      <input type="number" value="25" oninput="updatePrice(1, this.value)">
+
+      <label>Size</label>
+      <select>
+        <option>Small</option><option>Medium</option><option>Large</option>
+        <option>XL</option><option>2XL</option><option>3XL</option>
+        <option>4XL</option><option>5XL</option>
       </select>
 
       <button>Order Now</button>
     </div>
 
+    <!-- Logo Shirts -->
     <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Logo Shirt">
+      <img src="https://via.placeholder.com/300x200">
       <h3>Logo Shirts</h3>
       <p>Perfect for brands & teams.</p>
-      <p><strong>$30</strong></p>
-      
-      <!-- Shirt Size Selector -->
-      <label for="shirt-size-2">Size:</label>
-      <select id="shirt-size-2" name="shirt-size-2">
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-        <option value="xl">XL</option>
-        <option value="2xl">2XL</option>
-        <option value="3xl">3XL</option>
-        <option value="4xl">4XL</option>
-        <option value="5xl">5XL</option>
+
+      <div class="price">$<span id="price2">30</span></div>
+
+      <label>Change Price ($)</label>
+      <input type="number" value="30" oninput="updatePrice(2, this.value)">
+
+      <label>Size</label>
+      <select>
+        <option>Small</option><option>Medium</option><option>Large</option>
+        <option>XL</option><option>2XL</option><option>3XL</option>
+        <option>4XL</option><option>5XL</option>
       </select>
 
       <button>Order Now</button>
     </div>
 
+    <!-- Photo Prints -->
     <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Photo Shirt">
+      <img src="https://via.placeholder.com/300x200">
       <h3>Photo Prints</h3>
       <p>High-quality photo printing.</p>
-      <p><strong>$35</strong></p>
-      
-      <!-- Shirt Size Selector -->
-      <label for="shirt-size-3">Size:</label>
-      <select id="shirt-size-3" name="shirt-size-3">
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-        <option value="xl">XL</option>
-        <option value="2xl">2XL</option>
-        <option value="3xl">3XL</option>
-        <option value="4xl">4XL</option>
-        <option value="5xl">5XL</option>
+
+      <div class="price">$<span id="price3">35</span></div>
+
+      <label>Change Price ($)</label>
+      <input type="number" value="35" oninput="updatePrice(3, this.value)">
+
+      <label>Size</label>
+      <select>
+        <option>Small</option><option>Medium</option><option>Large</option>
+        <option>XL</option><option>2XL</option><option>3XL</option>
+        <option>4XL</option><option>5XL</option>
       </select>
 
       <button>Order Now</button>
@@ -70,3 +155,12 @@
 
   </div>
 </section>
+
+<script>
+  function updatePrice(id, value) {
+    document.getElementById("price" + id).textContent = value || 0;
+  }
+</script>
+
+</body>
+</html>
