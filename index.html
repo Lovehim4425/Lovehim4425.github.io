@@ -8,9 +8,8 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
       background: #f5f5f5;
-      color: #333;
+      margin: 0;
     }
 
     header {
@@ -34,45 +33,38 @@
 
     .card {
       background: #fff;
-      border-radius: 8px;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .card img {
+    img {
       width: 100%;
       border-radius: 6px;
     }
 
-    label {
-      display: block;
-      margin-top: 10px;
+    .price {
+      font-size: 22px;
       font-weight: bold;
+      margin: 10px 0;
     }
 
-    select, input {
+    select {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
     }
 
-    .price {
-      font-size: 20px;
-      margin: 10px 0;
-      font-weight: bold;
-    }
-
     button {
-      margin-top: 15px;
-      padding: 10px;
       width: 100%;
+      padding: 10px;
+      margin-top: 15px;
       background: #111;
       color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
     }
 
     button:hover {
@@ -84,13 +76,13 @@
 
 <header>
   <h1>Custom Shirts</h1>
-  <p>Edit prices anytime</p>
+  <p>Prices change by size</p>
 </header>
 
 <section class="section">
   <div class="products">
 
-    <!-- Graphic Tees -->
+    <!-- PRODUCT CARD -->
     <div class="card">
       <img src="https://via.placeholder.com/300x200">
       <h3>Graphic Tees</h3>
@@ -98,20 +90,21 @@
 
       <div class="price">$<span id="price1">25</span></div>
 
-      <label>Change Price ($)</label>
-      <input type="number" value="25" oninput="updatePrice(1, this.value)">
-
       <label>Size</label>
-      <select>
-        <option>Small</option><option>Medium</option><option>Large</option>
-        <option>XL</option><option>2XL</option><option>3XL</option>
-        <option>4XL</option><option>5XL</option>
+      <select onchange="updatePrice(1, this.value)">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="xl">XL</option>
+        <option value="2xl">2XL</option>
+        <option value="3xl">3XL</option>
+        <option value="4xl">4XL</option>
+        <option value="5xl">5XL</option>
       </select>
 
       <button>Order Now</button>
     </div>
 
-    <!-- Logo Shirts -->
     <div class="card">
       <img src="https://via.placeholder.com/300x200">
       <h3>Logo Shirts</h3>
@@ -119,20 +112,21 @@
 
       <div class="price">$<span id="price2">30</span></div>
 
-      <label>Change Price ($)</label>
-      <input type="number" value="30" oninput="updatePrice(2, this.value)">
-
       <label>Size</label>
-      <select>
-        <option>Small</option><option>Medium</option><option>Large</option>
-        <option>XL</option><option>2XL</option><option>3XL</option>
-        <option>4XL</option><option>5XL</option>
+      <select onchange="updatePrice(2, this.value)">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="xl">XL</option>
+        <option value="2xl">2XL</option>
+        <option value="3xl">3XL</option>
+        <option value="4xl">4XL</option>
+        <option value="5xl">5XL</option>
       </select>
 
       <button>Order Now</button>
     </div>
 
-    <!-- Photo Prints -->
     <div class="card">
       <img src="https://via.placeholder.com/300x200">
       <h3>Photo Prints</h3>
@@ -140,14 +134,16 @@
 
       <div class="price">$<span id="price3">35</span></div>
 
-      <label>Change Price ($)</label>
-      <input type="number" value="35" oninput="updatePrice(3, this.value)">
-
       <label>Size</label>
-      <select>
-        <option>Small</option><option>Medium</option><option>Large</option>
-        <option>XL</option><option>2XL</option><option>3XL</option>
-        <option>4XL</option><option>5XL</option>
+      <select onchange="updatePrice(3, this.value)">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="xl">XL</option>
+        <option value="2xl">2XL</option>
+        <option value="3xl">3XL</option>
+        <option value="4xl">4XL</option>
+        <option value="5xl">5XL</option>
       </select>
 
       <button>Order Now</button>
@@ -157,8 +153,16 @@
 </section>
 
 <script>
-  function updatePrice(id, value) {
-    document.getElementById("price" + id).textContent = value || 0;
+  // EDIT PRICES HERE
+  const prices = {
+    1: { small: 25, medium: 27, large: 29, xl: 31, "2xl": 33, "3xl": 35, "4xl": 38, "5xl": 40 },
+    2: { small: 30, medium: 32, large: 34, xl: 36, "2xl": 38, "3xl": 40, "4xl": 43, "5xl": 45 },
+    3: { small: 35, medium: 37, large: 39, xl: 41, "2xl": 43, "3xl": 45, "4xl": 48, "5xl": 50 }
+  };
+
+  function updatePrice(productId, size) {
+    document.getElementById("price" + productId).textContent =
+      prices[productId][size];
   }
 </script>
 
